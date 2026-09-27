@@ -1,0 +1,22 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>X Article regression checks</title>
+<body>
+<h1>X Article regression checks</h1>
+<pre id="results">Running…</pre>
+<main data-testid="primaryColumn" id="fixture"></main>
+<script>
+  window.sentMessages = [];
+  window.messageHandler = async () => ({ok: false});
+  window.chrome = {
+    storage: {local: {get: async () => ({}), set: async () => {}}},
+    runtime: {sendMessage: async message => {
+      window.sentMessages.push(message);
+      return window.messageHandler(message);
+    }}
+  };
+</script>
+<script src="/article.js"></script>
+<script src="/tabs/article-media.js"></script>
+<script src="/x.b4b04e83.js"></script>
+<script src="/tests/article.test.js"></script>

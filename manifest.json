@@ -1,0 +1,60 @@
+{
+  "icons": {
+    "16": "icon16.plasmo.6c567d50.png",
+    "32": "icon32.plasmo.76b92899.png",
+    "48": "icon48.plasmo.aced7582.png",
+    "64": "icon64.plasmo.8bb5e6e0.png",
+    "128": "icon128.plasmo.3c1ed2d2.png"
+  },
+  "manifest_version": 3,
+  "action": {
+    "default_icon": {
+      "16": "icon16.plasmo.6c567d50.png",
+      "32": "icon32.plasmo.76b92899.png",
+      "48": "icon48.plasmo.aced7582.png",
+      "64": "icon64.plasmo.8bb5e6e0.png",
+      "128": "icon128.plasmo.3c1ed2d2.png"
+    }
+  },
+  "version": "0.1.5",
+  "name": "X 一键分发",
+  "description": "在 x.com 每条帖子旁一键分发到抖音、小红书、即刻，自动识别图文/视频",
+  "background": {
+    "service_worker": "static/background/service-worker.js"
+  },
+  "permissions": [
+    "storage",
+    "tabs",
+    "tabGroups",
+    "scripting"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://x.com/*",
+        "https://twitter.com/*"
+      ],
+      "js": [
+        "article.js",
+        "x.b4b04e83.js"
+      ],
+      "run_at": "document_idle",
+      "css": []
+    }
+  ],
+  "host_permissions": [
+    "https://*/*"
+  ],
+  "web_accessible_resources": [
+    {
+      "matches": [
+        "https://x.com/*",
+        "https://twitter.com/*"
+      ],
+      "resources": [
+        "x.6e038a4b.css",
+        "x.28a0c621.png"
+      ]
+    }
+  ]
+}
